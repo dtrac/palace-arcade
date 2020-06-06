@@ -10,3 +10,5 @@
 
 # Remote backend
 remote_backend.tf
+
+spn.config

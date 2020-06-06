@@ -1,7 +1,20 @@
+terraform {
+  backend "azurerm" {
+    resource_group_name   = "core-tstate-rg-001"
+    storage_account_name  = "devtstatesa666"
+    container_name        = "tstate"
+    key                   = "arcade.tfstate"
+  }
+}
+
+provider "azurerm" {
+  features {}
+}
+
 # Change to your own arcade name. This becomes part of your public URL.
 # Example: http://palacearcade.azurewebsites.net/
 variable "prefix" {
-  default = "palace-arcade"
+  default = "dtrac-arcade"
 }
 
 # Any docker image that runs an app on port 80 will do
@@ -12,7 +25,7 @@ variable "image" {
 
 # Choose a location
 variable "location" {
-  default = "centralus"
+  default = "uksouth"
 }
 
 variable "https_only" {
